@@ -1,0 +1,6 @@
+body {
+    background-color: azure;
+}
+.list > li {
+    margin: 10px;
+}

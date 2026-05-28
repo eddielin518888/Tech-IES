@@ -4,3 +4,9 @@ body {
 .list > li {
     margin: 10px;
 }
+code {
+    display: block;
+    background-color: lightgray;
+    width: fit-content;
+    padding: 0 15px;
+}

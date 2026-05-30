@@ -1,0 +1,24 @@
+body {
+  background-color: hsl(220, 90%, 50%);
+}
+h1,
+p,
+span {
+  background-color: lightblue;
+  border: 3px solid black;
+}
+hr {
+  border: 1.5px solid black;
+}
+.p1 {
+  font-family: "Times New Roman", Times, serif;
+}
+.p2 {
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-weight: 600;
+}
+.p3 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+}

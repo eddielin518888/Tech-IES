@@ -1,0 +1,20 @@
+body {
+  background-color: hsl(220, 80%, 85%);
+  margin: 0;
+  padding: 0;
+}
+h1, h2, p {
+  margin-left: 10px;
+}
+.navbar {
+  background-color: hsl(0, 70%, 85%);
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 50px;
+  align-items: center;
+}
+.navbutton, .navbar > span {
+  font-size: 24px;
+}

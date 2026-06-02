@@ -26,7 +26,7 @@ h1, h2, p {
 .eventcard {
   background-color: hsl(45, 100%, 90%);
   padding: 10px;
-  width: 120px;
+  width: 150px;
 }
 .eventgrid1, .eventgrid2 {
   display: flex;

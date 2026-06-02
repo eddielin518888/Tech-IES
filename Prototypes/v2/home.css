@@ -18,3 +18,20 @@ h1, h2, p {
 .navbutton, .navbar > span {
   font-size: 24px;
 }
+.schedules {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.schedule-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+td, th {
+  border: 2px solid black;
+  padding: 4px;
+}
+table {
+  border-collapse: collapse;
+}

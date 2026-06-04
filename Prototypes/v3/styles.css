@@ -1,61 +1,67 @@
 @layer reset, base, layout, components, utilities; 
+
 @layer reset {
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
   *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body {
+    background-color: hsl(60,95%,95%);
   }
 }
 @layer base {
-  p, h1, h2, h3, span {
+  p, h1, h2, h3, span, a {
     margin: 0;
     padding: 0;
   }
   h1, h2, h3 {
     line-height: 1.2;
   }
-  p, span {
+  p, span, a, li, pre {
     line-height: 1.6;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+  }
+  span, a, pre, ul {
+    display: inline-block;
   }
   h1 {
     margin-top: 1.5rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     font-size: 2.5rem;
   }
   h2 {
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     font-size: 2rem;
   }
   h3 {
     margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     font-size: 1.5rem;
   }
 }
 @layer layout {
   .container {
-  max-width: 1000px;
+  max-width: min(950px, 85vw);
   margin: auto;
   }
   header {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    height: 5rem;
+    gap: 1vw;
+    padding: 0 min(1rem, 3vw);
+    height: 15vh;
     align-items: center;
     background-color: hsl(220,80%,40%);
+    width: 100%;
   }
   header > span {
     flex: 1;
     display: flex;
-    font-size: 1.5rem;
+    font-size: min(1.5rem, 3vw);
     justify-content: center;
     text-align: center;
     line-height: 1.2rem;
@@ -64,6 +70,84 @@
   header > .nav-bar {
     flex: 2;
     display: flex;
-    justify-content: space-around;
+    gap: 3vw;
+    padding: 1vw;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .eventgrid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .eventrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .eventcard {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: min(18rem, 32%);
+    height: min(10rem, 20vw);
+    border: 3px solid hsl(0,0%,20%);
+    background-color: hsl(0,80%,95%);
+  }
+  .schedule-container {
+    display: flex;
+    flex-direction: row;
+    height: 85vh;
+  }
+  .schedule-buttons {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    padding: 5vh;
+    justify-content: center;
+    align-items: center;
+  }
+  .schedule-buttons > button {
+    padding: 10px;
+  }
+  .schedule-area {
+    flex: 2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@layer components {
+  .nav-button {
+    display: flex;
+    padding: 0 min(2rem, 2vw);
+    height: 10vh;
+    border: 2px solid hsl(220,70%,60%);
+    background-color: transparent;
+    color: hsl(0,0%,90%);
+    text-align: center;
+    align-items: center;
+    font-size: min(1rem, 2vw);
+    white-space: nowrap;
+  }
+  table {
+    width: 30%;
+    min-width: 300px;
+    max-width: 500px;
+    border-collapse: collapse; 
+    scale: 0.9;
+
+  }
+  th, td {
+    border: 2px solid black;
+    padding: 8px;
+    text-align: center;
   }
 }

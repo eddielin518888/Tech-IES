@@ -1,0 +1,38 @@
+body {
+  background-color: hsl(200, 100%, 90%);
+}
+hr {
+  border: 0.1rem solid black;
+}
+.button {
+  background-color: hsl(0, 0%, 80%);
+  font-size: 2rem;
+  padding: 1.2rem;
+  width: max-content;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+.scale:hover {
+  transform: scale(1.2);
+}
+.slide:hover {
+  transform: translateY(2rem);
+}
+.color:hover {
+  background-color: pink;
+}
+.rotate:hover {
+  transform: rotate(10deg)
+}
+.shadow:hover {
+  box-shadow: 0 0 10px black;
+}

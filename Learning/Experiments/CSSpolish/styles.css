@@ -12,6 +12,7 @@ hr {
   text-align: center;
   border: 2px solid black;
   border-radius: 0.5rem;
+  box-shadow: -2px 2px 2px black;
   transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 .buttons {
@@ -25,14 +26,14 @@ hr {
   transform: scale(1.2);
 }
 .slide:hover {
-  transform: translateY(2rem);
+  transform: translateY(1rem);
 }
 .color:hover {
   background-color: pink;
 }
 .rotate:hover {
-  transform: rotate(10deg)
+  transform: rotate(15deg)
 }
 .shadow:hover {
-  box-shadow: 0 0 10px black;
+  box-shadow: 0 0 20px black;
 }

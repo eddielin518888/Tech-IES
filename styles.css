@@ -1,3 +1,198 @@
-body {
-    background-color: lightgray;
+@layer reset, base, layout, components, utilities, media-query;
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  :root {
+    --nav-gradient: linear-gradient(
+      to bottom,
+      hsl(220, 40%, 40%),
+      hsl(220, 45%, 45%)
+    );
+    --bg-gradient: linear-gradient(
+      to bottom,
+      hsl(60, 99%, 99%),
+      hsl(60, 94%, 94%)
+    );
+    --card-gradient: linear-gradient(
+      to bottom,
+      hsl(0, 99%, 99%),
+      hsl(0, 97%, 97%)
+    );
+    --past-card-gradient: linear-gradient(
+      to bottom,
+      hsl(200, 99%, 99%),
+      hsl(200, 94%, 94%)
+    );
+    --card-club-art-border: 2px solid black;
+    --card-club-science-border: 2px solid black;
+    --card-club-sports-border: 2px solid black;
+    --card-club-culture-border: 2px solid black;
+    --card-club-humanities-border: 2px solid black;
+    --card-club-fundraiser-border: 2px solid black;
+    --misc-border: 2px solid hsl(0, 0%, 40%);
+    --border-radius: 8px;
+    --card-hover: translateY(-2px);
+    --card-transition: transform 0.2s ease;
+    --color-transition: background-color 0.2s ease;
+    --nav-item-hover: hsl(220, 50%, 50%);
+    --nav-item-active: linear-gradient(
+      to bottom,
+      hsl(215, 50%, 50%),
+      hsl(215, 40%, 40%)
+    );
+    --black: hsl(0, 0%, 20%);
+    --white: hsl(0, 0%, 80%);
+    --red: hsl(0, 80%, 80%);
+    --orange: hsl(30, 80%, 80%);
+    --yellow: hsl(60, 80%, 80%);
+    --green: hsl(100, 80%, 80%);
+    --blue: hsl(200, 80%, 80%);
+    --purple: hsl(250, 80%, 80%);
+    --shadow: -1px 1px 5px var(--black);
+  }
+}
+@layer base {
+  h1,
+  h2,
+  h3,
+  a,
+  span,
+  p,
+  li {
+    color: var(--black);
+  }
+  h1 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  h3 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  a,
+  span {
+    display: inline-block;
+    line-height: 1.2;
+    font-size: 1.2rem;
+  }
+  p,
+  li {
+    line-height: 1.6;
+    font-size: 1.2rem;
+  }
+}
+@layer layout {
+  main {
+    background-image: var(--bg-gradient);
+  }
+  .container {
+    max-width: min(1100px, 90%);
+    margin: auto;
+  }
+  .home-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .home-info {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid var(--red);
+    border-collapse: collapse;
+  }
+  .home-announcements {
+    flex: 1;
+    padding: 1rem 2rem 2rem 2rem;
+    border: 2px solid var(--blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-announcements > * {
+    max-width: fit-content;
+  }
+  .home-highlights {
+    flex: 1;
+    padding: 1rem 2rem 2rem 2rem;
+    border: 2px solid var(--blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-highlights > * {
+    max-width: fit-content;
+  }
+  .home-memories {
+    display: flex;
+    flex-direction: row;
+    background-image: var(--past-card-gradient);
+    padding: 0 2rem;
+  }
+  header {
+    display: flex;
+    flex-direction: row;
+    padding: 3dvh 5dvw;
+    justify-content: center;
+    align-items: center;
+    gap: 10dvw;
+    background-image: var(--nav-gradient);
+    box-shadow:
+      0 2px 5px red,
+      0 4px 10px yellow;
+  }
+  header span {
+    color: var(--white);
+    font-size: 1.5rem;
+  }
+  .nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+  }
+  .grid {
+    display: grid;
+  }
+  .event-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@layer components {
+  .home-memory {
+    height: 200px;
+    width: 20%;
+    object-fit: contain;
+  }
+  .nav-button {
+    padding: 1rem;
+    color: var(--white);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: var(--color-transition);
+    box-shadow: var(--shadow);
+  }
+}
+@layer utilities {
+  .nav-button:hover {
+    background-color: var(--nav-item-hover);
+  }
+  .active {
+    background-image: var(--nav-item-active);
+    pointer-events: none;
+  }
 }

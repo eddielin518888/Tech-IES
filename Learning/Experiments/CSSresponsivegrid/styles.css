@@ -1,0 +1,50 @@
+body {
+  background-color: hsl(0, 0%, 80%);
+}
+hr {
+  border: 1.5px solid black;
+}
+.container {
+  width: 95vw;
+  margin: auto;
+}
+.card {
+  font-size: 2rem;
+  background-color: hsl(0, 80%, 95%);
+  border: 2px solid hsl(0, 0%, 30%);
+  border-radius: 5px;
+  padding: 1rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  background-color: hsl(0, 50%, 40%);
+}
+
+@media screen and (max-width: 1000px) {
+  .grid {
+    background-color: hsl(240, 50%, 40%);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .grid {
+    background-color: hsl(120, 50%, 40%);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .grid {
+    background-color: hsl(300, 50%, 40%);
+    grid-template-columns: repeat(1, 1fr);
+    gap: 5px;
+    padding: 5px;
+  }
+}

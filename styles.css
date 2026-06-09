@@ -9,26 +9,10 @@
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
   :root {
-    --nav-gradient: linear-gradient(
-      to bottom,
-      hsl(220, 40%, 40%),
-      hsl(220, 45%, 45%)
-    );
-    --bg-gradient: linear-gradient(
-      to bottom,
-      hsl(60, 99%, 99%),
-      hsl(60, 94%, 94%)
-    );
-    --card-gradient: linear-gradient(
-      to bottom,
-      hsl(0, 99%, 99%),
-      hsl(0, 97%, 97%)
-    );
-    --past-card-gradient: linear-gradient(
-      to bottom,
-      hsl(200, 99%, 99%),
-      hsl(200, 94%, 94%)
-    );
+    --nav-gradient: linear-gradient(to bottom, hsl(220, 35%, 35%), hsl(220, 45%, 45%));
+    --bg-gradient: linear-gradient(to bottom, hsl(60, 98%, 98%), hsl(60, 93%, 93%));
+    --card-gradient: linear-gradient(to bottom, hsl(0, 99%, 99%), hsl(0, 97%, 97%));
+    --past-card-gradient: linear-gradient(to bottom, hsl(200, 99%, 99%), hsl(200, 95%, 95%));
     --card-club-art-border: 2px solid black;
     --card-club-science-border: 2px solid black;
     --card-club-sports-border: 2px solid black;
@@ -41,11 +25,7 @@
     --card-transition: transform 0.2s ease;
     --color-transition: background-color 0.2s ease;
     --nav-item-hover: hsl(220, 50%, 50%);
-    --nav-item-active: linear-gradient(
-      to bottom,
-      hsl(215, 50%, 50%),
-      hsl(215, 40%, 40%)
-    );
+    --nav-item-active: linear-gradient(to bottom, hsl(215, 50%, 50%), hsl(215, 40%, 40%));
     --black: hsl(0, 0%, 20%);
     --white: hsl(0, 0%, 80%);
     --red: hsl(0, 80%, 80%);
@@ -82,19 +62,19 @@
   h3 {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 1.2;
   }
   a,
   span {
     display: inline-block;
     line-height: 1.2;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   p,
   li {
     line-height: 1.6;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 @layer layout {
@@ -130,6 +110,7 @@
     flex: 1;
     padding: 1rem 2rem 2rem 2rem;
     border: 2px solid var(--blue);
+    border-left: none;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -146,18 +127,17 @@
   header {
     display: flex;
     flex-direction: row;
-    padding: 3dvh 5dvw;
+    padding: 1rem 5dvw;
     justify-content: center;
     align-items: center;
     gap: 10dvw;
     background-image: var(--nav-gradient);
     box-shadow:
-      0 2px 5px red,
-      0 4px 10px yellow;
-  }
-  header span {
-    color: var(--white);
-    font-size: 1.5rem;
+      0 1px 5px var(--red),
+      0 3px 10px var(--yellow);
+    position: sticky;
+    top: 0;
+    z-index: 1;
   }
   .nav-bar {
     display: flex;
@@ -170,6 +150,38 @@
   }
   .event-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .event-head {
+    display: flex;
+    flex-direction: row;
+    height: 10rem;
+    position: relative;
+  }
+  .event-title {
+    display: flex;
+    max-width: fit-content;
+    flex-direction: column;
+    font-size: 1rem;
+    justify-content: center;
+    flex: 1;
+  }
+  .event-next {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    float: left;
+    position: absolute;
+    right: 3rem;
+    top: 0.2rem;
+    gap: 0.5rem;
+  }
+  .card {
+    box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+    transition: transform 0.2s ease;
   }
 }
 @layer components {
@@ -179,12 +191,45 @@
     object-fit: contain;
   }
   .nav-button {
+    background-color: transparent;
     padding: 1rem;
     color: var(--white);
-    border-radius: var(--border-radius);
     text-decoration: none;
     transition: var(--color-transition);
     box-shadow: var(--shadow);
+    border-radius: var(--border-radius);
+  }
+  .next-event-card {
+    transform: scale(1.2);
+    box-shadow:
+      var(--shadow),
+      0 0 1rem hsl(55, 90%, 75%);
+  }
+  .event-card:not(.past-event-card) {
+    background-image: var(--card-gradient);
+    padding: 0.5rem 1rem 1rem 1rem;
+  }
+  .past-event-card {
+    display: flex;
+    flex-direction: row;
+    background-image: var(--past-card-gradient);
+  }
+  .card-img {
+    height: 100%;
+    flex: 2;
+  }
+  .card-img > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: 30% 50%;
+  }
+  .event-card-info {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1% 5%;
   }
 }
 @layer utilities {
@@ -194,5 +239,13 @@
   .active {
     background-image: var(--nav-item-active);
     pointer-events: none;
+  }
+  header > span,
+  header > a {
+    font-size: 1.2rem;
+    color: var(--white);
+  }
+  .card:not(.next-event-card):hover {
+    transform: translateY(-2px);
   }
 }

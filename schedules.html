@@ -22,12 +22,20 @@
         <h1>Northern School Schedules</h1>
         <section class="schedules">
           <section class="schedule-buttons">
-            <button class="schedule-button">Normal</button>
+            <button class="schedule-button active-schedule-button">
+              Normal
+            </button>
             <button class="schedule-button">Late Start</button>
             <button class="schedule-button">Assembly</button>
             <button class="schedule-button">Half Day</button>
           </section>
           <section class="schedule-table-area">
+            <h2 class="chosen-schedule active-chosen-schedule">
+              Chosen schedule: Normal
+            </h2>
+            <h2 class="chosen-schedule">Chosen schedule: Late start</h2>
+            <h2 class="chosen-schedule">Chosen schedule: Assembly</h2>
+            <h2 class="chosen-schedule">Chosen schedule: Half day</h2>
             <div class="schedule-table-div normal-schedule active-schedule">
               <table class="schedule-table">
                 <tr>
@@ -127,6 +135,10 @@
                   <td>9:50 - 10:35</td>
                 </tr>
                 <tr>
+                  <td>No lunch</td>
+                  <td>No lunch</td>
+                </tr>
+                <tr>
                   <td>3</td>
                   <td>10:40 - 11:25</td>
                 </tr>
@@ -137,12 +149,9 @@
               </table>
             </div>
           </section>
-          <section class="chosen-schedule">
-            <h3>Chosen schedule:</h3>
-            <p>Normal Day</p>
-          </section>
         </section>
       </section>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>

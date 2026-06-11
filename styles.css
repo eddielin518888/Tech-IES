@@ -13,14 +13,14 @@
     --bg-gradient: linear-gradient(to bottom, hsl(60, 98%, 98%), hsl(60, 95%, 95%));
     --card-gradient: linear-gradient(to bottom, hsl(0, 99%, 99%), hsl(0, 96%, 96%));
     --past-card-gradient: linear-gradient(to bottom, hsl(200, 99%, 99%), hsl(200, 94%, 94%));
-    --card-club-art-border: 3px solid var(--pink);
-    --card-club-science-border: 3px solid var(--green);
-    --card-club-sports-border: 3px solid var(--red);
-    --card-club-culture-border: 3px solid var(--purple);
-    --card-club-humanities-border: 3px solid var(--orange);
-    --card-club-fundraiser-border: 3px solid var(--yellow);
-    --card-club-school-border: 3px solid var(--blue);
-    --misc-border: 3px solid hsl(0, 0%, 40%);
+    --card-club-art-border: 6px solid var(--pink);
+    --card-club-science-border: 6px solid var(--green);
+    --card-club-sports-border: 6px solid var(--red);
+    --card-club-culture-border: 6px solid var(--purple);
+    --card-club-humanities-border: 6px solid var(--orange);
+    --card-club-fundraiser-border: 6px solid var(--yellow);
+    --card-club-school-border: 6px solid var(--blue);
+    --misc-border: 2px solid hsl(0, 0%, 40%);
     --border-radius: 8px;
     --button-border-radius: 4px;
     --card-hover: translateY(-2px);
@@ -53,35 +53,36 @@
     color: var(--dark);
   }
   h1 {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    font-size: 2.5rem;
+    margin-top: clamp(0.8rem, 6vh, 1.5rem);
+    margin-bottom: clamp(0.8rem, 6vh, 1.5rem);
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
     line-height: 1.2;
   }
   h2 {
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    font-size: 2rem;
+    margin-top: clamp(0.3rem, 2.5vh, 0.6rem);
+    margin-bottom: clamp(0.5rem, 5vh, 1.2rem);
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
     line-height: 1.2;
   }
   h3 {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
+    margin-top: clamp(0.3rem, 2.5vh, 0.6rem);
+    margin-bottom: clamp(0.3rem, 2.5vh, 0.6rem);
+    font-size: clamp(1.2rem, 3vw, 1.4rem);
     line-height: 1.2;
   }
   a,
   span {
     display: inline-block;
     line-height: 1.2;
-    font-size: 1rem;
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
   }
   p,
   li {
     line-height: 1.6;
-    font-size: 1rem;
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
   }
 }
+
 @layer layout {
   main {
     background-image: var(--bg-gradient);
@@ -97,13 +98,18 @@
   .home-info {
     display: flex;
     flex-direction: row;
-    border: 2px solid var(--red);
+    border: 4px solid var(--red);
     border-collapse: collapse;
+  }
+  @media screen and (max-width: 600px) {
+    .home-info {
+      flex-direction: column;
+    }
   }
   .home-announcements {
     flex: 1;
     padding: 1rem 2rem 2rem 2rem;
-    border: 2px solid var(--blue);
+    border: 4px solid var(--blue);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,11 +120,17 @@
   .home-highlights {
     flex: 1;
     padding: 1rem 2rem 2rem 2rem;
-    border: 2px solid var(--blue);
+    border: 4px solid var(--blue);
     border-left: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  @media screen and (max-width: 600px) {
+    .home-highlights {
+      border-left: 4px solid var(--blue);
+      border-top: none;
+    }
   }
   .home-highlights > * {
     max-width: fit-content;
@@ -126,17 +138,21 @@
   .home-memories {
     display: flex;
     flex-direction: row;
-    background-image: var(--past-card-gradient);
-    padding: 0 2rem;
+  }
+  @media screen and (max-width: 600px) {
+    .home-memories {
+      flex-direction: column;
+      width: 100%;
+    }
   }
   header {
     display: flex;
     flex-direction: row;
-    padding: 1rem 5dvw;
+    padding: clamp(0.1rem, 2vh, 1rem) clamp(0.1rem, 1.5vw, 1rem);
     justify-content: center;
     align-items: center;
-    gap: 10dvw;
     background-image: var(--nav-gradient);
+    gap: 0.5rem;
     box-shadow:
       0 2px 8px var(--dull-blue),
       0 3px 10px var(--red),
@@ -145,36 +161,79 @@
     top: 0;
     z-index: 1;
   }
+  @media screen and (max-width: 1024px) {
+    header {
+      flex-wrap: wrap;
+    }
+  }
   .nav-bar {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     flex: 1;
+    margin-left: 2rem;
+  }
+  @media screen and (max-width: 1024px) {
+    .nav-bar {
+      margin: 0;
+    }
   }
   .grid {
     display: grid;
   }
   .event-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
+  }
+  @media screen and (max-width: 1024px) {
+    .event-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .event-grid {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1rem;
+    }
   }
   .club-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
   }
+  @media screen and (max-width: 1024px) {
+    .club-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .club-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+    }
+  }
   .event-head {
     display: flex;
     flex-direction: row;
-    height: 10rem;
-    position: relative;
+    height: auto;
   }
-  .event-title {
+  @media screen and (max-width: 1024px) {
+    .event-head {
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+  }
+  .event-header {
     display: flex;
-    max-width: fit-content;
-    flex-direction: column;
     font-size: 1rem;
-    justify-content: center;
     flex: 1;
+  }
+  @media screen and (max-width: 1024px) {
+    .event-header {
+      flex: none;
+      margin: 0;
+      padding: 0;
+    }
   }
   .event-next {
     display: flex;
@@ -182,17 +241,21 @@
     justify-content: center;
     align-items: center;
     flex: 1;
-    float: left;
-    position: absolute;
-    right: 3rem;
-    top: 0.2rem;
-    gap: 0.5rem;
+    margin-left: auto;
+  }
+  @media screen and (max-width: 1024px) {
+    .event-next {
+      align-items: flex-start;
+      flex: none;
+      margin: 0;
+    }
   }
   .card {
     box-shadow: var(--shadow);
     border-radius: var(--border-radius);
     transition: transform 0.2s ease;
-    border: 1px solid hsl(0, 0%, 40%);
+    border: 2px solid hsl(0, 0%, 40%);
+    overflow: hidden;
   }
   .club-card {
     padding: 0 0.5rem 0.5rem 0.5rem;
@@ -204,6 +267,11 @@
     position: relative;
     bottom: 3rem;
   }
+  @media screen and (max-width: 1024px) {
+    .schedules {
+      flex-direction: column;
+    }
+  }
   .schedule-buttons {
     display: flex;
     flex-direction: column;
@@ -213,15 +281,25 @@
     align-items: center;
     padding-top: 3rem;
   }
+  @media screen and (max-width: 1024px) {
+    .schedule-buttons {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+  }
   .schedule-container {
     max-width: min(1000px, 90%);
     position: relative;
   }
   .schedule-container > h1 {
     margin-bottom: 0;
-    display: absolute;
     width: 50%;
-    top: 0;
+  }
+  @media screen and (max-width: 1024px) {
+    .schedule-container > h1 {
+      width: 100%;
+      margin-bottom: clamp(0.8rem, 6vh, 1.5rem);
+    }
   }
   .schedule-table-area {
     display: flex;
@@ -234,6 +312,13 @@
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    padding-bottom: 1rem;
+  }
+  @media screen and (max-width: 600px) {
+    .resources-sections {
+      flex-direction: column;
+      max-width: fit-content;
+    }
   }
   .resources-section {
     flex: 1;
@@ -241,18 +326,31 @@
     flex-direction: column;
     border: 2px solid var(--dull-blue);
     padding: 1rem;
-    gap: 0.5rem;
+    gap: clamp(0.5rem, 3vh, 1rem);
+  }
+  .floor-plan-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 @layer components {
   .home-memory {
     height: 200px;
     width: 20%;
-    object-fit: contain;
+    object-fit: cover;
+    border: 4px solid var(--dull-blue);
+    margin: -2px;
+  }
+  @media screen and (max-width: 600px) {
+    .home-memory {
+      height: 150px;
+      width: 100%;
+    }
   }
   .nav-button {
     background-color: transparent;
-    padding: 1rem;
+    padding: clamp(0.25rem, 2vw, 1rem);
     color: var(--light);
     text-decoration: none;
     transition: var(--color-transition);
@@ -264,6 +362,11 @@
     box-shadow:
       var(--shadow),
       0 0 1rem hsl(55, 90%, 75%);
+  }
+  @media screen and (max-width: 1024px) {
+    .next-event-card {
+      transform: scale(1);
+    }
   }
   .event-card:not(.past-event-card) {
     background-image: var(--card-gradient);
@@ -282,7 +385,6 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-    object-position: 30% 50%;
   }
   .event-card-info {
     flex: 3;
@@ -292,36 +394,48 @@
     padding: 1% 5%;
   }
   .art-club {
-    border: var(--card-club-art-border);
+    border-left: var(--card-club-art-border);
+    background-color: var(--pink);
   }
   .culture-club {
-    border: var(--card-club-culture-border);
+    border-left: var(--card-club-culture-border);
+    background-color: var(--purple);
   }
   .fundraiser-club {
-    border: var(--card-club-fundraiser-border);
+    border-left: var(--card-club-fundraiser-border);
+    background-color: var(--yellow);
   }
   .humanities-club {
-    border: var(--card-club-humanities-border);
+    border-left: var(--card-club-humanities-border);
+    background-color: var(--orange);
   }
   .school-club {
-    border: var(--card-club-school-border);
+    border-left: var(--card-club-school-border);
+    background-color: var(--blue);
   }
   .stem-club {
-    border: var(--card-club-science-border);
+    border-left: var(--card-club-science-border);
+    background-color: var(--green);
   }
   .sports-club {
-    border: var(--card-club-sports-border);
+    border-left: var(--card-club-sports-border);
+    background-color: var(--red);
   }
   .club-legend-card {
     width: 1rem;
     height: 1rem;
     border-radius: var(--button-border-radius);
-    background-image: var(--card-gradient);
   }
   .club-legend {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+  }
+  @media screen and (max-width: 1024px) {
+    .club-legend {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
   }
   .schedule-button {
     max-width: fit-content;
@@ -337,7 +451,7 @@
     background-color: hsl(0, 93%, 93%);
   }
   .schedule-table-div {
-    width: 70%;
+    width: 85%;
   }
   .schedule-table {
     border-collapse: collapse;
@@ -351,6 +465,13 @@
     padding: 0.5rem;
     text-align: center;
   }
+  @media screen and (max-width: 600px) {
+    .active-schedule .schedule-table-div > tr,
+    th,
+    td {
+      padding: 0.25rem;
+    }
+  }
   .schedule-table-div:not(.active-schedule) {
     display: none;
   }
@@ -361,6 +482,27 @@
   }
   .chosen-schedule:not(.active-chosen-schedule) {
     display: none;
+  }
+  .icon {
+    height: 3rem;
+  }
+  @media screen and (max-width: 1024px) {
+    .icon {
+      height: 2rem;
+    }
+  }
+  .floor-plan-container > h1 {
+    font-size: 2rem;
+    margin: 1rem;
+  }
+  .floor-plan-container > img {
+    border: 4px solid var(--dull-blue);
+    margin-bottom: 1rem;
+  }
+  @media screen and (max-width: 600px) {
+    .floor-plan {
+      transform: scale(0.9);
+    }
   }
 }
 @layer utilities {

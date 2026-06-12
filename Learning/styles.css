@@ -15,5 +15,13 @@ img {
   display: block;
 }
 .img-proto2 {
-  clip-path: inset(0px 10px 0px 0px); 
+  clip-path: inset(0px 10px 0px 0px);
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.row > img {
+  border: 4px solid gray;
+  margin: -2px;
 }
